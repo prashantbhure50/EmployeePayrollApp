@@ -6,8 +6,15 @@ class EmployeePayroll
         this._id = id;
     }
     get name() { return this._name; }
-    set name(name) 
-    {
+    set name(name) {
+        let checkName = RegExp('^[A-Z]{1}[a-z]{2,}');
+        if (checkName.test(name)) {
+            this._name = name;
+        }
+        else {
+            throw "InCorrect Name";
+        }
+
         this._name = name;
     }
     get profilePic() { return this._profilePic; }
@@ -36,9 +43,13 @@ class EmployeePayroll
         this._note = note;
     }
     get startDate() { return this._startDate; }
-    set startDate(startDate) 
-    {
-        this._startDate = startDate;
+    set startDate(startDate) {
+        let now = new Date();
+        if (startDate > now) throw 'Start Date is a Future Date!';
+        var diff = Math.abs(now.getTime() - startDate.getTime());
+        if (diff / (1000 * 60 * 60 * 24) > 30) 
+          throw 'Start Date is beyond 30 Days!';
+        this._startDate = startDate; 
     }
     toString() 
     {
