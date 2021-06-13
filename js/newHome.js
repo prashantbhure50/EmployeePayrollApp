@@ -25,7 +25,7 @@ const createInnerHTML = () => {
         <td>${empPayrollData._gender}</td>
         <td>${getDeptHtml(empPayrollData._department)}</td>
         <td>${empPayrollData._salary}</td>
-        <td>${empPayrollData._startDate}</td>
+        <td>${stringifyDate(empPayrollData._startDate)}</td>
         <td>
           <img id="${empPayrollData._id}" onclick="remove(this)" 
           src="../img/twotone_delete_black_24dp.png">
