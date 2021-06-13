@@ -1,4 +1,4 @@
-class EmployeePayroll 
+class EmployeePayroll
 {
     get id() { return this._id; }
     set id(id) 

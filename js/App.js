@@ -121,3 +121,7 @@ const resetForm = () => {
     setValue('#month', 'Jan');
     setValue('#year', '2020');
 }
+function deleteItems() {
+    localStorage.clear();
+  }
+  
