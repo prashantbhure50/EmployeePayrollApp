@@ -19,7 +19,7 @@ const createInnerHTML = () => {
     innerHtml=`${innerHtml}
       <tr>
         <td><img class="profile" alt="" 
-                  src="${empPayrollData._profilePic}">
+       src="${empPayrollData._profilePic}">
         </td>
         <td>${empPayrollData._name}</td>
         <td>${empPayrollData._gender}</td>
@@ -28,9 +28,9 @@ const createInnerHTML = () => {
         <td>${empPayrollData._startDate}</td>
         <td>
           <img id="${empPayrollData._id}" onclick="remove(this)" 
-          src="../EmployeepayrollApp/img/twotone_delete_black_24dp.png">
+          src="../img/twotone_delete_black_24dp.png">
           <img id="${empPayrollData._id}" onclick="update(this)" 
-          src="../EmployeepayrollApp/img/twotone_edit_black_24dp.png">
+          src="../img/twotone_edit_black_24dp.png">
         </td>
       </tr>
       `;
