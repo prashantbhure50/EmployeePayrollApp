@@ -9,7 +9,6 @@ const getEmployeePayrollDataFromStorage = () => {
   return localStorage.getItem('EmployeePayrollList') ? 
  JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];  
 }
-
 const createInnerHTML = () => {
   
     const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th>"+
@@ -38,7 +37,6 @@ const createInnerHTML = () => {
     }
     document.querySelector("#table-display").innerHTML = innerHtml;
 }
-
 const creteEmployeePayrollJSON = () => {
     let empPayrollListLocal = [
           {
@@ -66,11 +64,8 @@ const creteEmployeePayrollJSON = () => {
             _profileUrl: "./twotone_edit_black_24dp.png"
           }
         ];
-          return empPayrollListLocal;
-        
+          return empPayrollListLocal;   
     }
-
-
     const getDeptHtml = (deptList) => {
         let deptHtml = '';
         for (const dept of deptList) {

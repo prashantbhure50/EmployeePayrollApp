@@ -18,14 +18,12 @@
             textError.textContent = e;
         }
     });
-
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output-text');
     output.textContent = salary.value;
     salary.addEventListener('input', function () {
          output.textContent = salary.value;
     });
-
     const date = document.querySelector('#date');
     date.addEventListener('input', function () 
     {
@@ -43,8 +41,6 @@
         }
     });
 });
-
-
 const save = () => {
     try 
     {
@@ -56,7 +52,6 @@ const save = () => {
         alert(e);
     }
 }
-
 const createEmployeePayroll = () => {
     let employeePayrollData = new EmployeePayroll();
     try {
@@ -66,7 +61,6 @@ const createEmployeePayroll = () => {
         setTextValue('.text-error', e);
         throw e;
     }
-
     employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
     employeePayrollData.department = getSelectedValues('[name=department]');
@@ -77,8 +71,6 @@ const createEmployeePayroll = () => {
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
-
-
 const getSelectedValues = (propertyValue) => {
     let allItems = document.querySelectorAll(propertyValue);
     let sellItems = [];
@@ -88,7 +80,6 @@ const getSelectedValues = (propertyValue) => {
     });
     return sellItems;
 }
-
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
@@ -108,8 +99,6 @@ function createAndUpdateStorage(employeePayrollData)
     alert(employeePayrollList.toString());
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
 }
-
-
 const resetForm = () => {
     setValue('#name','');
     unsetSelectedValues('[name=profile]');
@@ -123,5 +112,4 @@ const resetForm = () => {
 }
 function deleteItems() {
     localStorage.clear();
-  }
-  
+  } 
