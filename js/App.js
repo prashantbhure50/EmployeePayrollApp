@@ -1,4 +1,6 @@
- window.addEventListener('DOMContentLoaded', (event) => {
+let isUpdate = false;
+let employeePayrollObj = {};
+window.addEventListener('DOMContentLoaded', (event) => {
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
     name.addEventListener('input', function () 
@@ -23,6 +25,9 @@
     output.textContent = salary.value;
     salary.addEventListener('input', function () {
          output.textContent = salary.value;
+
+
+
     });
     const date = document.querySelector('#date');
     date.addEventListener('input', function () 
@@ -40,6 +45,7 @@
             setTextValue('.date-error', e);
         }
     });
+    checkForUpdate();
 });
 
 
@@ -119,3 +125,25 @@ const resetForm = () => {
 function deleteItems() {
     localStorage.clear();
   } 
+
+
+  const checkForUpdate = () => {
+    const employeePayrollJson = localStorage.getItem('editEmp');
+    isUpdate = employeePayrollJson ? true : false;
+    if (!isUpdate) return;
+    employeePayrollObj = JSON.parse(employeePayrollJson);
+    setForm();
+}
+const setForm = () => {
+    setValue('#name', employeePayrollObj._name);
+    setSelectedValues('[name=profile]', employeePayrollObj._profilePic);
+    setSelectedValues('[name=gender]', employeePayrollObj._gender);
+    setSelectedValues('[name=department]', employeePayrollObj._department);
+    setValue('#salary', employeePayrollObj._salary);
+    setTextValue('.salary—output', employeePayrollObj._salary);
+    setValue('#notes', employeePayrollObj._note);
+    let date = stringifyDate(employeePayrollObj._startDate).split(" ");
+    setValue('#day', date[0]);
+    setValue('#month', date[1]);
+    setValue('#year', date[2]);
+}
